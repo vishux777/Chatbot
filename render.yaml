@@ -8,10 +8,9 @@ services:
     startCommand: gunicorn app:app
     envVars:
       - key: MISTRAL_API_KEY
-        fromService:
-          type: secret
-          name: mistral-api-key
-  - type: web  # Changed back to "web" (correct type for static sites in render.yaml)
+        value: TEMPORARY_PLACEHOLDER  # You'll replace this in the dashboard
+
+  - type: web
     name: expense-chatbot-frontend
     env: static
     plan: free
