@@ -11,7 +11,7 @@ services:
         fromService:
           type: secret
           name: mistral-api-key
-  - type: static  # Changed from "web" to "static"
+  - type: web  # Changed back to "web" (correct type for static sites in render.yaml)
     name: expense-chatbot-frontend
     env: static
     plan: free
