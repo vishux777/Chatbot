@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: expense-chatbot-backend
+    env: python
+    plan: free
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: MISTRAL_API_KEY
+        value: your-mistral-api-key-here  # Replace with your actual key (or use a secret, see below)
+  - type: web
+    name: expense-chatbot-frontend
+    env: static
+    plan: free
+    branch: main
+    buildCommand: ""
+    staticPublishPath: static
