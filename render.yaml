@@ -8,8 +8,10 @@ services:
     startCommand: gunicorn app:app
     envVars:
       - key: MISTRAL_API_KEY
-        value: your-mistral-api-key-here  # Replace with your actual key (or use a secret, see below)
-  - type: web
+        fromService:
+          type: secret
+          name: mistral-api-key
+  - type: static  # Changed from "web" to "static"
     name: expense-chatbot-frontend
     env: static
     plan: free
